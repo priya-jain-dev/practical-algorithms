@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ebay Color Change</title>
+</head>
+<body>
+    <input type="number" id="transition-period" placeholder="Eg : 1 (in minute)">
+    <button onclick="startTransition()">Start Transition</button>
+    <div id="color-changing-element" style="width: 50vw; height: 50vh; background-color: rgb(255 255 204)"></div>
+
+    <script>
+      function startTransition() {
+
+        // Get the element
+        const element = document.getElementById("color-changing-element");
+
+        // // Define the target color (white)
+        const targetColor = "rgb(255, 255, 255)";
+
+        const colors = [];
+        let b = 204;
+        for (let i = 0; i <= 60; i++) {
+            if (i % 6 === 0) {
+                b += 1;
+            } else {
+                b += 0.8;
+            }
+            colors.push(`rgb(255, 255, ${Math.round(b)})`);
+        }
+
+        // Total duration: 60 seconds (1 minute), with a change every second
+        const totalDuration =  60 * 1000; // 60,000 milliseconds
+        const transitionDuration = totalDuration / colors.length;
+
+        let colorIndex = 0;
+        let startTime = null;
+
+        function updateColor(timestamp) {
+          
+            if (!startTime) startTime = timestamp;
+
+            const elapsed = timestamp - startTime;
+
+            if (colorIndex < colors.length) {
+                element.style.backgroundColor = colors[colorIndex];
+
+                if (elapsed >= transitionDuration) {
+                    colorIndex++;
+                    startTime = null;
+                }
+
+                requestAnimationFrame(updateColor);
+            } else {
+                element.style.backgroundColor = targetColor;
+            }
+        }
+
+        // // Start the color transition
+        requestAnimationFrame(updateColor);
+      }
+
+    </script>
+</body>
+</html>
