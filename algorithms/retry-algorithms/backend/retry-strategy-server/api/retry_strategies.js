@@ -1,5 +1,5 @@
 const axios = require("axios");
-const BASE_URL = "http://localhost:5000/unstable-endpoint";
+const BASE_URL = "https://retry-algo.priya.today/unstable-endpoint";
 
 const makeRequest = async () => {
   try {
