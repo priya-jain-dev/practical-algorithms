@@ -1,15 +1,5 @@
 {
   "version": 2,
-  "projects": [
-    {
-      "name": "unstable-server",
-      "path": "./unstable-server"
-    },
-    {
-      "name": "retry-strategy-server",
-      "path": "./retry-strategy-server"
-    }
-  ],
   "routes": [
     {
       "src": "/unstable-endpoint",
