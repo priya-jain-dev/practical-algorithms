@@ -1,5 +1,8 @@
 {
   "version": 2,
+  "builds": [
+    { "src": "*.ts", "use": "@vercel/node" }
+  ],
   "rewrites": [
     { "source": "/unstable-endpoint", "destination": "/unstable-server/api/" },
     { "source": "/retry", "destination": "/retry-strategy-server/api/" }
