@@ -1,10 +1,17 @@
 {
   "version": 2,
   "builds": [
-    { "src": "*.ts", "use": "@vercel/node" }
+    {
+      "src": "/unstable-server/api/index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "/retry-strategy-server/api/index.js",
+      "use": "@vercel/node"
+    }
   ],
   "rewrites": [
-    { "source": "/unstable-endpoint", "destination": "/unstable-server/api/" },
-    { "source": "/retry", "destination": "/retry-strategy-server/api/" }
+    { "source": "/unstable-endpoint", "destination": "/unstable-server/api/index.js" },
+    { "source": "/retry", "destination": "/retry-strategy-server/api/index.js" }
   ]
 }
