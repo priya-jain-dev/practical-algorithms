@@ -1,1 +1,23 @@
-{ "version": 2, "rewrites": [{ "source": "/(.*)", "destination": "/api" }] }
+{
+  "version": 2,
+  "projects": [
+    {
+      "name": "unstable-server",
+      "path": "./unstable-server"
+    },
+    {
+      "name": "retry-strategy-server",
+      "path": "./retry-strategy-server"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/unstable-endpoint",
+      "dest": "/unstable-server/api/index.ts"
+    },
+    {
+      "src": "/retry",
+      "dest": "/retry-strategy-server/api/index.ts"
+    }
+  ]
+}
