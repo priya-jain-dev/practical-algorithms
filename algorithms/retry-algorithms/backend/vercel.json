@@ -1,13 +1,7 @@
 {
   "version": 2,
-  "routes": [
-    {
-      "src": "/unstable-endpoint",
-      "dest": "/unstable-server/api/index.ts"
-    },
-    {
-      "src": "/retry",
-      "dest": "/retry-strategy-server/api/index.ts"
-    }
+  "rewrites": [
+    { "source": "/unstable-endpoint", "destination": "/unstable-server/api/" },
+    { "source": "/retry", "destination": "/retry-strategy-server/api/" }
   ]
 }
